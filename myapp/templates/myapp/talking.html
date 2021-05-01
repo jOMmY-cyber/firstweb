@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+{% block mybody %}
+<h1>talking page</h1>
+
+    {% for talking in talkings %}
+        <p>+-------------------</p>
+        <h5>{{talking.name}}</h5>
+        <p>{{talking.massage}}</p>
+    {% endfor %}
+
+    <!-- form to add new massage -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="enter your name">
+        <input type="text" name="massage" placeholder="enter your massage">
+        <button class="btn btn-primary">send</button>
+    </form>
+
+{% endblock %}
